@@ -27,6 +27,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutViewt.vue')
   },
   {
+    path: '/waves',
+    name: 'waves',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/waves.vue')
+  },
+  {
     path: '/403',
     name: 'NotAccess',
     component: () => import(/* webpackChunkName: "NotAccess" */ '../views/403.vue')
@@ -37,7 +45,7 @@ const router = new VueRouter({
   routes
 })
 // const a = ["about", "aboutt"]
-const a = ["home", "about"]
+const a = ["home", "about", "waves"]
 router.beforeEach((to, from, next) => {
   console.log(a, to.name)
   if (to.name !== 'NotAccess' && !a.includes(to.name)) {
